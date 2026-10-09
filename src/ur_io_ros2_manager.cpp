@@ -14,6 +14,10 @@ UrIoInterface::UrIoInterface()
 UrIoInterface::~UrIoInterface() = default;
 
 void UrIoInterface::io_states_callback(const ur_msgs::msg::IOStates & msg) {
+  if (latch_inputs_.size() < msg.digital_in_states.size()) {
+    latch_inputs_.resize(msg.digital_in_states.size(), false);
+  }
+
   for(int i=0; i<msg.digital_in_states.size(); i++){
     if(msg.digital_in_states[i].state == true && latch_inputs_[i] == false){
       std_msgs::msg::Bool messg;

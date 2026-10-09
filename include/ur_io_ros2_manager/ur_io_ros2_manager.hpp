@@ -71,6 +71,6 @@ private:
   /**
    * @brief Latch to avoid publishing the same message multiple times when the state of the digital inputs does not change.
    */
-  std::vector<bool> latch_inputs_ = {false, false, false, false, false, false, false, false};
+  std::vector<bool> latch_inputs_;
 };
 
