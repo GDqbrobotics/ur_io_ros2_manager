@@ -1,0 +1,13 @@
+digital_io:
+  # Digital inputs publish std_msgs/Bool when their state changes.
+  - topic_name: /reset_count
+    io_index: 0
+    io_type: input
+  - topic_name: /task_pause
+    io_index: 1
+    io_type: input
+
+  # Digital outputs subscribe to std_msgs/Bool and call the UR SetIO service.
+  - topic_name: /led_ring
+    io_index: 0
+    io_type: output
